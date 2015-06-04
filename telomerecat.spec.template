@@ -1,0 +1,33 @@
+# -*- mode: python -*-
+
+def get_platform():
+  import platform
+  if platform.system() == "Darwin":
+    return "macos"
+  elif platform.system() == "Linux":
+    return "linux"
+
+block_cipher = None
+
+a = Analysis(['%s/bin/telomerecat' % (telomerecat_dir,)],
+             pathex=['/Users/farmer01/builds/telomerecat-macosx'],
+             hiddenimports=['telomerecat', 'platform', 'pysam.csamtools', 'pysam.TabProxies'],
+             hookspath=None,
+             runtime_hooks=None,
+             excludes=None)
+
+a.datas += Tree('%s/bowtie2-2.2.4-%s' % (telomerecat_dir,get_platform(),), prefix = "bowtie2-%s" % (get_platform(),))
+a.datas += Tree('%s/telomere_reference' % (telomerecat_dir,), prefix = 'telomere_reference')
+
+pyz = PYZ(a.pure)
+
+exe = EXE(pyz,
+          a.scripts,
+          a.binaries,
+          a.zipfiles,
+          a.datas,
+          name='telomerecat',
+          debug=False,
+          strip=None,
+          upx=True,
+          console=True )
