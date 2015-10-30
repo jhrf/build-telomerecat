@@ -14,6 +14,8 @@ try:
     import numpy
     import argparse
     import PyInstaller
+    import sklearn
+    import scipy
 
 except ImportError as exep:
     sys.stdout.write("##ERROR## Attempt to build telomerecat with missing package")
