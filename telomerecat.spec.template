@@ -11,7 +11,7 @@ block_cipher = None
 
 a = Analysis(['%s/bin/telomerecat' % (telomerecat_dir,)],
              pathex=['/Users/farmer01/builds/telomerecat-macosx'],
-             hiddenimports=['telomerecat', 'platform', 'pysam.csamtools', 'pysam.TabProxies'],
+             hiddenimports=['telomerecat','sklearn.mixture','platform', 'pysam.csamtools', 'pysam.TabProxies'],
              hookspath=None,
              runtime_hooks=None,
              excludes=None)
