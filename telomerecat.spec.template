@@ -11,7 +11,11 @@ block_cipher = None
 
 a = Analysis(['%s/bin/telomerecat' % (telomerecat_dir,)],
              pathex=['/Users/farmer01/builds/telomerecat-macosx'],
-             hiddenimports=['telomerecat','sklearn.mixture','platform', 'pysam.csamtools', 'pysam.TabProxies'],
+             hiddenimports=['telomerecat','platform', 'pysam.csamtools',
+                            'pysam.TabProxies',"scipy.linalg.cython_blas",
+                            "scipy.linalg.cython_lapack","sklearn.utils.lgamma",
+                            "sklearn.neighbors.typedefs","sklearn.utils.sparsetools._graph_validation",
+                            "sklearn.utils.weight_vector"],
              hookspath=None,
              runtime_hooks=None,
              excludes=None)
