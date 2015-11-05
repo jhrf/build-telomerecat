@@ -11,7 +11,7 @@ block_cipher = None
 
 a = Analysis(['%s/bin/telomerecat' % (telomerecat_dir,)],
              pathex=['/Users/farmer01/builds/telomerecat-macosx'],
-             hiddenimports=['telomerecat','platform', 'pysam.csamtools',
+             hiddenimports=['telomerecat','platform','sklearn','pysam','pysam.csamtools',
                             'pysam.TabProxies',"scipy.linalg.cython_blas",
                             "scipy.linalg.cython_lapack","sklearn.utils.lgamma",
                             "sklearn.neighbors.typedefs","sklearn.utils.sparsetools._graph_validation",
@@ -20,8 +20,8 @@ a = Analysis(['%s/bin/telomerecat' % (telomerecat_dir,)],
              runtime_hooks=None,
              excludes=None)
 
-a.datas += Tree('%s/bowtie2-2.2.4-%s' % (telomerecat_dir,get_platform(),), prefix = "bowtie2-%s" % (get_platform(),))
-a.datas += Tree('%s/telomere_reference' % (telomerecat_dir,), prefix = 'telomere_reference')
+#a.datas += Tree('%s/bowtie2-2.2.4-%s' % (telomerecat_dir,get_platform(),), prefix = "bowtie2-%s" % (get_platform(),))
+#a.datas += Tree('%s/telomere_reference' % (telomerecat_dir,), prefix = 'telomere_reference')
 
 pyz = PYZ(a.pure)
 

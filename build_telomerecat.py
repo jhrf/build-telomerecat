@@ -41,7 +41,7 @@ def create_spec_file(project_path,temp_dir_path):
     return spec_file_path
 
 def run_pyinstaller(project_path,spec_path):
-    call = ["pyinstaller","--onefile","--distpath=./","%s" % (spec_path,)]
+    call = ["pyinstaller","--clean","--onefile","--distpath=./","%s" % (spec_path,)]
     return_code = subprocess.call(call)
     return return_code
 
