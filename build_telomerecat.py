@@ -14,8 +14,6 @@ try:
     import pysam
     import numpy
     import PyInstaller
-    import sklearn
-    import scipy
 
 except ImportError as exep:
     sys.stdout.write(\
